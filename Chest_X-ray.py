@@ -23,7 +23,7 @@ vgg =  VGG16(input_shape= IMAGE_SIZE + [3], weights= 'imagenet', include_top = F
 for layers in vgg.layers:
     layers.trainable = False
     
-folders = glob('/media/maddy/D/Bioinformatics/Datasets/train/*')
+folders = glob('Datasets/train/*')
 
 x= Flatten()(vgg.output)
 
@@ -48,12 +48,12 @@ train_datagen = ImageDataGenerator(rescale=1./255,
 
 test_datagen = ImageDataGenerator(rescale=1./255)
 
-training_set = train_datagen.flow_from_directory('/media/maddy/D/Bioinformatics/Datasets/train',
+training_set = train_datagen.flow_from_directory('Datasets/train',
                                                  target_size=(224,224),
                                                  batch_size= 32,
                                                  class_mode='categorical')
 
-test_set = test_datagen.flow_from_directory('/media/maddy/D/Bioinformatics/Datasets/test',
+test_set = test_datagen.flow_from_directory('Datasets/test',
                                                  target_size=(224,224),
                                                  batch_size= 32,
                                                  class_mode='categorical')
@@ -69,39 +69,20 @@ r= model.fit(training_set,
 
 
 import tensorflow as tf
-
 from keras.models import load_model
 
-model.save('/media/maddy/D/Bioinformatics/model_vgg16.h5')
-
+model.save('models/model_vgg16.h5')
 
 
 plt.plot(r.history['loss'], label = 'train loss')
 plt.plot(r.history['val_loss'], label = 'val loss')
 plt.legend()
 plt.show()
-plt.savefig('/media/maddy/D/Bioinformatics/LossVal_loss')
+plt.savefig('plots/LossVal_loss')
 
 
 plt.plot(r.history['accuracy'], label='train accuracy')  
 plt.plot(r.history['val_accuracy'], label='val accuracy')
 plt.legend()
 plt.show()
-plt.savefig('/media/maddy/D/Bioinformatics/AccVal_acc')
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
+plt.savefig('plots/AccVal_acc')
