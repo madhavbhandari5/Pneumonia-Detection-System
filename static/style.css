@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-top: 30px;
+}
+
+#upload-form {
+    margin: 20px auto;
+    max-width: 300px;
+}
+
+#file-input {
+    display: none;
+}
+
+button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#prediction-result {
+    margin: 30px auto;
+    max-width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#prediction-result p {
+    font-size: 1.2em;
+    color: #333;
+    margin: 0;
+}
+
+#prediction-result strong {
+    color: #007BFF;
+}
+
+
+#file-input {
+    display: none;
+}
+
+/* Style for the custom file input button */
+label[for="file-input"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+label[for="file-input"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the selected file name display */
+#selected-file-name {
+    font-size: 1.2em;
+    color: #cc0e0e;
+    margin-top: 10px;
+}
+

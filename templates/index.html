@@ -1,36 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Image Prediction</title>
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+  </head>
+  <body>
     <h1>Image Prediction For Pneumonia Infection</h1>
     <form id="upload-form" enctype="multipart/form-data">
-        <input type="file" id="file-input" name="file" accept="image/*" />
-        <button type="submit">Upload & Predict</button>
+      <input type="file" id="file-input" name="file" accept="image/*" />
+      <label for="file-input">Select Image</label>
+      <p id="selected-file-name"></p>
+      <button type="submit">Upload & Predict</button>
     </form>
     <div id="prediction-result"></div>
-
-    <script>
-        document.getElementById('upload-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const formData = new FormData();
-            const fileInput = document.getElementById('file-input');
-            formData.append('file', fileInput.files[0]);
-
-            fetch('/predict', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                const resultDiv = document.getElementById('prediction-result');
-            resultDiv.innerHTML = `Predicted Class: ${data.predicted_class}<br>Confidence: ${data.confidence}`;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
-    </script>
-</body>
+    <script src="../static/scripts.js"></script>
+  </body>
 </html>
